@@ -1,0 +1,15 @@
+@import '../../../../../dist/scss/variaveis.scss';
+:host {
+    div {
+        background-color: $vermelho;
+        text-align: center;
+        h1 {
+            font: {
+                size: 30px;
+                weight: 700;
+            }
+            color: $branco;
+            padding: 35px 0;
+        }
+    }
+}
