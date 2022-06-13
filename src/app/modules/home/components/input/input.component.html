@@ -1,13 +1,13 @@
 <div class="inputs">
     <div class="input-produto">
         <label>Nome do Produto</label>
-        <input type="text" [(ngModel)]="nomeProduto">
+        <input type="text" #inputNomeProduto>
     </div>
     <div class="input-valor">
         <label>Valor do Produto (R$)</label>
-        <input type="number" [(ngModel)]="valorProduto">
+        <input type="number" #inputValorProduto>
     </div>
 </div>
 <div class="enviar">
-    <button (click)="enviarProduto()">Enviar</button>
+    <button (click)="addListaProdutos(inputNomeProduto.value, inputValorProduto.valueAsNumber)">Enviar</button>
 </div>
