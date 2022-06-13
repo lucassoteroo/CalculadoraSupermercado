@@ -1,0 +1,13 @@
+<div class="inputs">
+    <div class="input-produto">
+        <label>Nome do Produto</label>
+        <input type="text" [(ngModel)]="nomeProduto">
+    </div>
+    <div class="input-valor">
+        <label>Valor do Produto (R$)</label>
+        <input type="number" [(ngModel)]="valorProduto">
+    </div>
+</div>
+<div class="enviar">
+    <button (click)="enviarProduto()">Enviar</button>
+</div>
