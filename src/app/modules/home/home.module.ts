@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 // Components
 import { HeaderComponent } from './components/header/header.component';
-import { InputProdutoComponent } from './components/input-produto/input-produto.component';
-import { InputValorComponent } from './components/input-valor/input-valor.component';
 import { ListaProdutosComponent } from './components/lista-produtos/lista-produtos.component';
+import { InputComponent } from './components/input/input.component';
 
 // Pages
 import { HomeComponent } from './pages/home/home.component';
@@ -13,13 +13,13 @@ import { HomeComponent } from './pages/home/home.component';
 @NgModule({
   declarations: [
     HeaderComponent,
-    InputProdutoComponent,
-    InputValorComponent,
     ListaProdutosComponent,
-    HomeComponent
+    HomeComponent,
+    InputComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ]
 })
 export class HomeModule { }
