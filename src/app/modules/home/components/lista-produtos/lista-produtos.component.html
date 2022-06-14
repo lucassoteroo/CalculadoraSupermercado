@@ -1,7 +1,14 @@
-<ul *ngFor="let item of listaProdutos; let i = index">
-    <li>{{ item.nomeProduto }}</li>
-    <li>{{ item.valorProduto }}</li>
-    <button (click)="apagarItemLista(i)">
-        <img src="assets/icons/icon-trash.svg">
-    </button>
-</ul>
+<section>
+    <h3>Lista de Produtos</h3>
+    <ul>
+        <li *ngFor="let item of listaProdutos; let i = index">
+            <p class="nomeProduto">{{ item.nomeProduto }}</p>
+            <p class="valorProduto">{{ item.valorProduto }} R$</p>
+            <div class="botao">
+                <button (click)="apagarItemLista(i)">
+                    <img src="assets/icons/icon-trash.svg">
+                </button>
+            </div>
+        </li>
+    </ul>
+</section>
