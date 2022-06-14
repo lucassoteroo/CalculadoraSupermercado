@@ -5,10 +5,14 @@
             <p class="nomeProduto">{{ item.nomeProduto }}</p>
             <p class="valorProduto">{{ item.valorProduto }} R$</p>
             <div class="botao">
-                <button (click)="apagarItemLista(i)">
+                <button (click)="apagarItemLista(i, item.valorProduto)">
                     <img src="assets/icons/icon-trash.svg">
                 </button>
             </div>
         </li>
+        <li *ngIf="valorTotal">
+            <p>Valor total: {{ valorTotal }}</p>
+        </li>
     </ul>
+
 </section>
