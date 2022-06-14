@@ -10,8 +10,14 @@
                 </button>
             </div>
         </li>
-        <li *ngIf="valorTotal">
-            <p>Valor total: {{ valorTotal }}</p>
+        <li *ngIf="produtosTotal" class="total">
+            <p class="nomeProdutoTotal">Total de produtos: {{ produtosTotal }}</p>
+            <p class="valorProdutoTotal">Valor total: {{ valorTotal }} R$</p>
+            <div class="botao">
+                <button (click)="apagarLista()">
+                    <img src="assets/icons/icon-trash.svg">
+                </button>
+            </div>
         </li>
     </ul>
 

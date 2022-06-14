@@ -10,6 +10,8 @@ export class ListaProdutosComponent implements OnInit, DoCheck {
 
   public listaProdutos: Array<{ nomeProduto: string, valorProduto: any }> = []
   public valorTotal: any = ''
+  public produtosTotal: any = ''
+
   constructor(private listaProdutosService: ListaProdutosService) { }
 
   ngOnInit(): void {
@@ -18,7 +20,7 @@ export class ListaProdutosComponent implements OnInit, DoCheck {
       res => alert(`${res} foi adicionado a lista de compras`)
     )
   }
-
+  
   ngDoCheck(): void {
     this.renderizarValorTotal()
   }
@@ -28,9 +30,10 @@ export class ListaProdutosComponent implements OnInit, DoCheck {
       this.listaProdutos = this.listaProdutosService.mostrarListaProdutos()
     }
   }
-
+  
   public renderizarValorTotal() {
     this.valorTotal = this.listaProdutosService.mostrarValorTotal()
+    this.produtosTotal = this.listaProdutos.length
   }
 
   public apagarItemLista(item: any, value: number) {
@@ -38,5 +41,9 @@ export class ListaProdutosComponent implements OnInit, DoCheck {
     this.listaProdutosService.subtrairValor(value)
   }
 
+  public apagarLista() {
+    this.listaProdutos = []
+    alert("Lista apagada com sucesso!")
+  }
 
 }

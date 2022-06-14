@@ -9,21 +9,25 @@
             font-weight: 600;
         }
         ul {
-            li {
+            li,
+            .total {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 align-items: center;
-                background-color: $cinza;
+                background-color: $cinza-claro;
                 margin: 0 auto;
-                width: 50%;
+                width: 60%;
                 .nomeProduto,
-                .valorProduto {
+                .valorProduto,
+                .nomeProdutoTotal,
+                .valorProdutoTotal {
                     font-size: 16px;
                     font-weight: 600;
                     padding: 20px 0;
                     text-align: center;
                 }
-                .nomeProduto {
+                .nomeProduto,
+                .nomeProdutoTotal {
                     text-align: left;
                     padding-left: 15px;
                 }
@@ -36,6 +40,9 @@
                         }
                     }
                 }
+            }
+            .total {
+                background-color: $cinza-escuro;
             }
         }
     }
