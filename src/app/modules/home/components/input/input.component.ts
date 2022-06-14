@@ -1,29 +1,26 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
+import { ListaProdutosService } from '../../services/lista-produtos.service';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss']
 })
-export class InputComponent implements OnInit {
+export class InputComponent implements DoCheck {
 
-  @Output() public emitItemProduto = new EventEmitter
-  public novoProduto: {nome: string, valor: any} = {nome: '', valor: ''} 
-  public nomeProduto: string = ""
-  public valorProduto: any = ""
-
-  constructor() { }
+  private listaProdutos: Array<{nomeProduto: string, valorProduto: number}> = []
+  constructor(private listaProdutosService: ListaProdutosService) { }
 
   ngOnInit(): void {
   }
 
-  public enviarProduto() {
-    this.nomeProduto = this.nomeProduto.trim()
-    if (this.nomeProduto && this.valorProduto) {
-      this.novoProduto.nome = this.nomeProduto
-      this.novoProduto.valor = this.valorProduto
-      this.emitItemProduto.emit(this.novoProduto)
-    }
+  ngDoCheck(): void {
+    this.listaProdutos = this.listaProdutosService.mostrarListaProdutos()
+    console.log(this.listaProdutos)
+  }
+
+  public addListaProdutos(nomeProduto: string, valorProduto: number) {
+    return this.listaProdutosService.addListaProdutos(nomeProduto, valorProduto)
   }
 
 }
