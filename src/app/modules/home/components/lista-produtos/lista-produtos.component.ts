@@ -42,8 +42,8 @@ export class ListaProdutosComponent implements OnInit, DoCheck {
   }
 
   public apagarLista() {
-    this.listaProdutos = []
-    alert("Lista apagada com sucesso!")
+    this.listaProdutos.splice(0, 100)
+    alert("Apagando lista!")
   }
 
 }

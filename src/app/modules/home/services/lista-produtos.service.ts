@@ -31,13 +31,13 @@ export class ListaProdutosService {
   public calcularValorTotal() {
     let soma: number = 0
     for (const item of this.listaProdutos) {
-      soma = soma + item.valorProduto
+      soma += item.valorProduto
     }
     this.valorTotal = soma
   }
 
   public subtrairValor(value: number) {
-    this.valorTotal = this.valorTotal - value
+    this.valorTotal -= value
   }
 
 }
