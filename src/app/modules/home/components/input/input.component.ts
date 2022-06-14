@@ -8,7 +8,7 @@ import { ListaProdutosService } from '../../services/lista-produtos.service';
 })
 export class InputComponent implements DoCheck {
 
-  private listaProdutos: Array<{nomeProduto: string, valorProduto: number}> = []
+  private listaProdutos: Array<{nomeProduto: string, valorProduto: any}> = []
   constructor(private listaProdutosService: ListaProdutosService) { }
 
   ngOnInit(): void {
@@ -19,8 +19,12 @@ export class InputComponent implements DoCheck {
     console.log(this.listaProdutos)
   }
 
-  public addListaProdutos(nomeProduto: string, valorProduto: number) {
-    return this.listaProdutosService.addListaProdutos(nomeProduto, valorProduto)
+  public addListaProdutos(nomeProduto: string, valorProduto: any) {
+    if (nomeProduto == '' || valorProduto == '') {
+      alert('Campo de Nome do Produto o Valor do Produto estão vazio')
+    } else {
+      this.listaProdutosService.addListaProdutos(nomeProduto, valorProduto)
+    }
   }
 
 }

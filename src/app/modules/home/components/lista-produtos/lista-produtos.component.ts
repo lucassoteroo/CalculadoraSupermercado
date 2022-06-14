@@ -8,7 +8,7 @@ import { ListaProdutosService } from '../../services/lista-produtos.service';
 })
 export class ListaProdutosComponent implements OnInit {
 
-  public listaProdutos: Array<{nomeProduto: string, valorProduto: number}> = []
+  public listaProdutos: Array<{nomeProduto: string, valorProduto: any}> = []
   constructor(private listaProdutosService: ListaProdutosService) { }
 
   ngOnInit(): void {
