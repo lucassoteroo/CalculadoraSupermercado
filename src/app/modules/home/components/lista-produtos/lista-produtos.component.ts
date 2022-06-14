@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { ListaProdutosService } from '../../services/lista-produtos.service';
 
 @Component({
@@ -6,9 +6,10 @@ import { ListaProdutosService } from '../../services/lista-produtos.service';
   templateUrl: './lista-produtos.component.html',
   styleUrls: ['./lista-produtos.component.scss']
 })
-export class ListaProdutosComponent implements OnInit {
+export class ListaProdutosComponent implements OnInit, DoCheck {
 
-  public listaProdutos: Array<{nomeProduto: string, valorProduto: any}> = []
+  public listaProdutos: Array<{ nomeProduto: string, valorProduto: any }> = []
+  public valorTotal: any = ''
   constructor(private listaProdutosService: ListaProdutosService) { }
 
   ngOnInit(): void {
@@ -18,13 +19,24 @@ export class ListaProdutosComponent implements OnInit {
     )
   }
 
+  ngDoCheck(): void {
+    this.renderizarValorTotal()
+  }
+
   public renderizarLista() {
     if (this.listaProdutos) {
       this.listaProdutos = this.listaProdutosService.mostrarListaProdutos()
     }
   }
 
-  public apagarItemLista(item: any) {
-    this.listaProdutos.splice(item, 1)
+  public renderizarValorTotal() {
+    this.valorTotal = this.listaProdutosService.mostrarValorTotal()
   }
+
+  public apagarItemLista(item: any, value: number) {
+    this.listaProdutos.splice(item, 1)
+    this.listaProdutosService.subtrairValor(value)
+  }
+
+
 }

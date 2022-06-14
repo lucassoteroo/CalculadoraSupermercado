@@ -6,12 +6,17 @@ import { Injectable, EventEmitter } from '@angular/core';
 export class ListaProdutosService {
 
   public emitEvent = new EventEmitter
-  private listaProdutos: Array<{ nomeProduto: string, valorProduto: number }> = [{ nomeProduto: 'Arroz', valorProduto: 3 }]
+  private listaProdutos: Array<{ nomeProduto: string, valorProduto: number }> = []
+  private valorTotal: any = ''
   
   constructor() { }
 
   public mostrarListaProdutos() {
     return this.listaProdutos
+  }
+
+  public mostrarValorTotal() {
+    return this.valorTotal
   }
 
   public addListaProdutos(nome: string, valor: number) {
@@ -21,6 +26,18 @@ export class ListaProdutosService {
 
   public listaAlerta(value: string) {
     return this.emitEvent.emit(value)
+  }
+
+  public calcularValorTotal() {
+    let soma: number = 0
+    for (const item of this.listaProdutos) {
+      soma = soma + item.valorProduto
+    }
+    this.valorTotal = soma
+  }
+
+  public subtrairValor(value: number) {
+    this.valorTotal = this.valorTotal - value
   }
 
 }
