@@ -1,1 +1,7 @@
-<p>lista-produtos works!</p>
+<ul *ngFor="let item of listaProdutos; let i = index">
+    <li>{{ item.nomeProduto }}</li>
+    <li>{{ item.valorProduto }}</li>
+    <button (click)="apagarItemLista(i)">
+        <img src="assets/icons/icon-trash.svg">
+    </button>
+</ul>
